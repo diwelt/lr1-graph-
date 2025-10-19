@@ -52,7 +52,7 @@ public:
     {
         pixels[y * width + x] = { r, g, b };
     }
-    bool Save_image(const string& filepath)
+    bool Save_image(const string& filepath, std::string magic_number)
     {
         ofstream stream(filepath, ios::binary);
         if (!stream) {
@@ -96,5 +96,5 @@ int main(int argc, char *argv[])
     img.Replace_Pixel(0,0,255,127,127);
     img.Replace_Pixel(img.width/2,0,127,255,127);
     img.Replace_Pixel(0,img.height-1,127,127,255);
-    img.Save_image(output);
+    img.Save_image(output, "P6");
 }
